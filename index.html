@@ -242,8 +242,17 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 @media (max-width:560px){.join .btn{width:100%}}
 
 /* ====== FAQ ====== */
-.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px);align-items:start}
-.faq{display:flex;flex-direction:column;gap:12px}
+.ftabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;max-width:880px;margin:0 auto 24px}
+.ftabs button{font:inherit;font-weight:700;font-size:15px;cursor:pointer;padding:11px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink-2);transition:all .2s}
+.ftabs button:hover{border-color:var(--brand-2);color:var(--brand)}
+.ftabs button[aria-selected="true"]{background:linear-gradient(135deg,var(--brand-2),var(--brand));border-color:transparent;color:#fff;box-shadow:0 10px 22px -12px rgba(29,78,216,.7)}
+.ftabs button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (max-width:640px){.ftabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin:0 calc(-1*clamp(16px,4vw,32px)) 20px;padding:4px clamp(16px,4vw,32px);scrollbar-width:none}.ftabs::-webkit-scrollbar{display:none}.ftabs button{flex:none}}
+.faq{display:flex;flex-direction:column;gap:12px;max-width:880px;margin:0 auto}
+.js .faq[hidden]{display:none}
+.faq summary::after{content:"";width:30px;height:30px;border-radius:50%;flex:none;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D4ED8' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+@media (max-width:560px){.faq summary{font-size:16px;padding:16px}.faq details p{padding:0 16px 18px}}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:18px;transition:border-color .2s,box-shadow .2s}
 .faq details[open]{border-color:#A9C4FF;box-shadow:var(--shadow)}
 .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;font-weight:700;font-size:17px}
@@ -300,7 +309,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <a href="#lokasi">Lokasi</a>
 <a href="#faq">FAQ</a>
 </nav>
-<a class="btn btn-gold" href="#kontak"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg><span>Konsultasi</span></a>
+<a class="btn btn-gold" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya ingin konsultasi."><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg><span>Konsultasi</span></a>
 <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div>
 </header>
@@ -317,7 +326,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <h1>Lepas dari cemas, susah tidur, dan trauma. <em class="serif">Pikiran tenang</em> kembali.</h1>
 <p class="sub">Hipnoterapi bersama terapis profesional dan berpengalaman, untuk tidur yang lebih nyenyak dan kebiasaan buruk yang akhirnya berhenti. <strong>Mulai Rp400.000 per sesi.</strong></p>
 <div class="actions">
-<a class="btn btn-gold" href="#kontak">Konsultasi via WhatsApp<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="btn btn-gold" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya ingin konsultasi tentang masalah yang sedang saya alami.">Konsultasi via WhatsApp<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <a class="btn btn-ghost" href="#cek">Cek kondisi Anda</a>
 </div>
 <div class="trust">
@@ -363,7 +372,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <div class="verdict" id="verdict" aria-live="polite">
 <span class="count" id="count">Belum ada yang dipilih</span>
 <p>Bila ada <strong>satu saja</strong> yang Anda jawab “ya”, hipnoterapi di Hipnoterapi Center bisa menjadi langkah yang tepat untuk Anda.</p>
-<a class="btn btn-gold" href="#kontak">Ceritakan ke terapis</a>
+<a class="btn btn-gold" id="cerita" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya baru mengisi cek diri di website dan ingin bercerita ke terapis.">Ceritakan ke terapis</a>
 </div>
 </div>
 <div class="qlist">
@@ -436,7 +445,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 
 <div class="cat-wide rv">
 <div class="in"><span class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10.5H9.5L4 20z"/><path stroke="#E3A72F" d="M10.2 8.9a1.9 1.9 0 1 1 2.8 1.7c-.6.3-1 .7-1 1.4"/><path stroke="#E3A72F" stroke-width="2.4" d="M12 13.9h.01"/></svg></span><div><h3>Keluhan emosi lainnya</h3><p>Kondisi Anda tidak tercantum di atas? Ceritakan dulu lewat konsultasi, terapis kami akan menilai apakah hipnoterapi cocok untuk Anda.</p></div></div>
-<a class="btn btn-gold" href="#kontak">Konsultasikan dulu</a>
+<a class="btn btn-gold" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, kondisi saya tidak ada di daftar layanan. Boleh saya konsultasikan dulu apakah hipnoterapi cocok untuk saya?">Konsultasikan dulu</a>
 </div>
 
 </div>
@@ -463,7 +472,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 </div>
 <div class="callout rv">
 <p>Satu saja sudah cukup alasan untuk berkonsultasi. Semakin lama dipendam, semakin sulit dilepas.</p>
-<a class="btn btn-dark" href="#kontak">Konsultasi hari ini</a>
+<a class="btn btn-dark" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya mengalami beberapa tanda yang disebutkan di website dan ingin konsultasi hari ini.">Konsultasi hari ini</a>
 </div>
 <p class="small" style="margin-top:14px">Jika Anda memiliki pikiran untuk menyakiti diri sendiri, segera hubungi tenaga kesehatan atau layanan darurat terdekat.</p>
 </div>
@@ -482,7 +491,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <h3>Terapis Profesional</h3>
 <div class="price">Rp400.000 <span>/ sesi</span></div>
 <p class="d">Keluhan ringan hingga sedang: stres harian, sulit tidur, kurang percaya diri, kebiasaan ringan.</p>
-<a class="btn btn-dark" href="#kontak">Pilih paket ini</a>
+<a class="btn btn-dark" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya tertarik dengan sesi Terapis Profesional (Rp400.000 per sesi). Kapan jadwal yang tersedia?">Pilih paket ini</a>
 </div>
 <div class="plan hot rv">
 <span class="ribbon">Paling banyak dipilih</span>
@@ -490,14 +499,14 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <h3>Terapis Spesialis</h3>
 <div class="price">Rp600.000 <span>/ sesi</span></div>
 <p class="d">Kecemasan menetap, serangan panik, fobia, trauma, dan kebiasaan yang sulit diubah.</p>
-<a class="btn btn-brand" href="#kontak">Pilih paket ini</a>
+<a class="btn btn-brand" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya tertarik dengan sesi Terapis Spesialis (Rp600.000 per sesi). Kapan jadwal yang tersedia?">Pilih paket ini</a>
 </div>
 <div class="plan rv">
 <span class="lvl">Level 3</span>
 <h3>Terapis Senior Berpengalaman</h3>
 <div class="price">Rp800.000 <span>/ sesi</span></div>
 <p class="d">Kasus kompleks atau yang sudah lama dialami, ditangani terapis dengan jam terbang tinggi.</p>
-<a class="btn btn-dark" href="#kontak">Pilih paket ini</a>
+<a class="btn btn-dark" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya tertarik dengan sesi Terapis Senior Berpengalaman (Rp800.000 per sesi). Kapan jadwal yang tersedia?">Pilih paket ini</a>
 </div>
 </div>
 <p class="small" style="margin-top:28px;text-align:center;max-width:760px;margin-left:auto;margin-right:auto">Tarif dasar. Biaya akhir, durasi sesi, dan uang muka dikonfirmasi setelah konsultasi awal sesuai jenis masalah.</p>
@@ -514,7 +523,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <p>Kasus lama dan berat butuh rangkaian sesi terstruktur, asesmen awal, dan pemantauan berkala bersama terapis senior. Bila diperlukan, kami melibatkan dokter atau fasilitas rehabilitasi.</p>
 <div class="big">Rp7.500.000 – Rp8.700.000</div>
 <p style="font-size:14px;color:#9FB0DA">Satu paket penuh. Nilai akhir ditetapkan setelah asesmen.</p>
-<a class="btn btn-gold" href="#kontak" style="align-self:flex-start">Jadwalkan asesmen awal</a>
+<a class="btn btn-gold" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya ingin menjadwalkan asesmen awal untuk Program Intensif." style="align-self:flex-start">Jadwalkan asesmen awal</a>
 </div>
 <div style="display:flex;flex-direction:column;gap:14px">
 <div class="glass"><h3>Contoh kasus</h3><p>Ketergantungan zat (bersama dokter atau rehabilitasi), kecanduan berat, trauma mendalam, fobia kompleks, dan kebiasaan kronis bertahun-tahun.</p></div>
@@ -577,24 +586,73 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <div class="wrap">
 <div class="join rv">
 <div><h2>Anda terapis bersertifikat?</h2><p>Bergabunglah dengan jaringan Hipnoterapi Center. Kami bantu menjangkau klien dan mengelola jadwal, Anda fokus melayani.</p></div>
-<a class="btn btn-dark" href="#kontak">Daftar sebagai terapis</a>
+<a class="btn btn-dark" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya terapis bersertifikat dan ingin bergabung dengan jaringan Hipnoterapi Center.">Daftar sebagai terapis</a>
 </div>
 </div>
 </section>
 
 <!-- ====== FAQ ====== -->
 <section id="faq" class="sec soft">
-<div class="wrap faq-grid">
-<div class="head rv" style="margin-bottom:0">
+<div class="wrap">
+<div class="head center rv">
 <span class="eyebrow">Pertanyaan umum</span>
-<h2 class="h2">Yang paling sering ditanyakan</h2>
-<p class="lead">Masih ada pertanyaan lain? Tanyakan langsung lewat WhatsApp.</p>
+<h2 class="h2">Yang paling sering <em class="serif">ditanyakan</em></h2>
+<p class="lead">Pilih topik sesuai kebutuhan Anda. Masih ada pertanyaan lain? Tanyakan langsung lewat WhatsApp.</p>
 </div>
-<div class="faq">
-<details class="rv" open><summary>Mengapa tarif tiap terapis berbeda?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Tarif mengikuti level terapis (profesional, spesialis, senior) dan kerumitan masalah Anda.</p></details>
-<details class="rv"><summary>Apakah hipnoterapi aman?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Aman bila dilakukan terapis terlatih. Anda tetap sadar selama sesi dan dapat menghentikannya kapan saja.</p></details>
-<details class="rv"><summary>Apakah bisa menggantikan dokter atau psikiater?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Tidak. Hipnoterapi bersifat pendukung. Untuk kondisi medis atau gangguan jiwa, terapis akan menyarankan Anda ke dokter atau psikiater.</p></details>
-<details class="rv"><summary>Apakah ada jaminan hasil?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Sesi hipnoterapi adalah kontrak upaya, bukan kontrak hasil. Kami berkomitmen memberikan pendampingan terbaik, tetapi tidak dapat menjanjikan kesembuhan.</p></details>
+<div class="ftabs" role="tablist" aria-label="Topik pertanyaan">
+<button type="button" role="tab" id="t-umum" aria-controls="p-umum" aria-selected="true">Seputar hipnoterapi</button>
+<button type="button" role="tab" id="t-ortu" aria-controls="p-ortu" aria-selected="false">Untuk orang tua</button>
+<button type="button" role="tab" id="t-remaja" aria-controls="p-remaja" aria-selected="false">Untuk anak &amp; remaja</button>
+<button type="button" role="tab" id="t-biaya" aria-controls="p-biaya" aria-selected="false">Biaya &amp; jadwal</button>
+</div>
+
+<div class="faq" id="p-umum" role="tabpanel" aria-labelledby="t-umum">
+<details open><summary>Apa itu hipnoterapi?</summary><p>Hipnoterapi adalah terapi yang memanfaatkan kondisi hipnosis, yaitu keadaan sangat rileks dengan perhatian yang terfokus. Dalam kondisi ini pikiran bawah sadar lebih terbuka, sehingga pola pikir, emosi, dan kebiasaan yang selama ini sulit diubah bisa ditata ulang bersama terapis.</p></details>
+<details><summary>Apakah hipnoterapi sama dengan hipnotis panggung di televisi?</summary><p>Tidak. Hipnotis panggung dibuat untuk hiburan. Hipnoterapi adalah sesi pribadi yang tujuannya membantu menyelesaikan masalah Anda, dijalankan sesuai kode etik, dan tidak pernah membuat Anda melakukan hal yang memalukan.</p></details>
+<details><summary>Apakah saya akan tidak sadar atau bisa dikendalikan?</summary><p>Tidak. Anda tetap sadar, bisa mendengar, dan umumnya ingat jalannya sesi. Saran yang bertentangan dengan nilai atau keinginan Anda akan ditolak oleh pikiran Anda sendiri. Anda juga bisa membuka mata dan menghentikan sesi kapan saja.</p></details>
+<details><summary>Seperti apa rasanya saat berada dalam kondisi hipnosis?</summary><p>Kebanyakan klien merasakannya seperti saat hampir tertidur atau sedang melamun: tubuh terasa berat dan santai, pikiran tenang. Banyak yang merasa lebih segar dan ringan setelah sesi selesai.</p></details>
+<details><summary>Apakah saya tetap bisa mendengar suara terapis?</summary><p>Ya. Pendengaran Anda tetap bekerja, bahkan biasanya lebih fokus pada suara terapis. Anda juga tetap bisa menjawab pertanyaan dan berbicara bila diminta.</p></details>
+<details><summary>Apakah semua orang bisa dihipnosis?</summary><p>Pada dasarnya setiap orang yang bersedia, bisa berkonsentrasi, dan memahami arahan terapis dapat masuk ke kondisi hipnosis. Kuncinya ada pada kesediaan dan kerja sama Anda sendiri, bukan pada kekuatan terapis.</p></details>
+<details><summary>Apakah hipnoterapi aman?</summary><p>Aman bila dilakukan terapis terlatih. Anda tetap sadar selama sesi dan dapat menghentikannya kapan saja.</p></details>
+<details><summary>Berapa sesi yang saya butuhkan?</summary><p>Tergantung jenis, lamanya, dan beratnya masalah. Keluhan ringan bisa membaik dalam beberapa sesi, sedangkan kasus lama atau berat biasanya membutuhkan rangkaian sesi atau program intensif. Perkiraan jumlah sesi disampaikan setelah konsultasi awal.</p></details>
+<details><summary>Apakah cerita saya dijamin rahasia?</summary><p>Ya. Terapis terikat kode etik untuk menjaga kerahasiaan cerita dan data Anda. Informasi tidak dibagikan kepada siapa pun tanpa izin Anda, kecuali ada risiko serius terhadap keselamatan jiwa.</p></details>
+<details><summary>Apa yang perlu saya siapkan sebelum sesi?</summary><p>Datanglah atas keinginan sendiri dan tentukan satu masalah utama yang paling ingin Anda selesaikan, karena satu sesi berfokus pada satu masalah. Cukup istirahat, makan secukupnya, hindari alkohol, dan kenakan pakaian yang nyaman.</p></details>
+<details><summary>Apakah sesi online sama efektifnya dengan tatap muka?</summary><p>Untuk banyak keluhan, sesi lewat video call bisa berjalan baik asalkan Anda berada di ruang privat yang tenang dengan koneksi internet stabil. Bila kondisi Anda lebih cocok ditangani langsung, terapis akan menyarankan sesi tatap muka.</p></details>
+<details><summary>Apakah hipnoterapi bisa menggantikan dokter atau psikiater?</summary><p>Tidak. Hipnoterapi bersifat pendukung. Untuk kondisi medis atau gangguan jiwa, terapis akan menyarankan Anda ke dokter atau psikiater.</p></details>
+<details><summary>Apakah ada jaminan hasil?</summary><p>Sesi hipnoterapi adalah kontrak upaya, bukan kontrak hasil. Kami berkomitmen memberikan pendampingan terbaik, tetapi tidak dapat menjanjikan kesembuhan. Hasilnya sangat dipengaruhi kerja sama antara Anda dan terapis.</p></details>
+</div>
+
+<div class="faq" id="p-ortu" role="tabpanel" aria-labelledby="t-ortu">
+<details open><summary>Usia berapa anak bisa menjalani hipnoterapi?</summary><p>Anak usia sekolah umumnya sudah bisa mengikuti sesi dengan pendekatan yang disesuaikan usianya, misalnya lewat cerita, imajinasi, dan permainan. Kesiapan setiap anak dinilai terapis saat konsultasi awal.</p></details>
+<details><summary>Apakah hipnoterapi aman untuk anak?</summary><p>Aman bila dilakukan terapis terlatih dengan pendekatan khusus anak. Anak tetap sadar dan hanya diberi saran yang sesuai dengan tujuan yang sudah disepakati bersama orang tua.</p></details>
+<details><summary>Masalah anak apa saja yang bisa dibantu?</summary><p>Misalnya sering berbohong, susah makan nasi atau sayur, mengompol, pemalu, penakut, sulit fokus belajar, cemas menghadapi ujian, kecanduan gawai atau game, serta perubahan perilaku setelah mengalami kejadian yang menakutkan.</p></details>
+<details><summary>Mengapa orang tua juga harus ikut sesi konseling?</summary><p>Perilaku anak sangat dipengaruhi suasana dan pola di rumah. Tanpa dukungan kedua orang tua, perubahan pada anak sulit bertahan lama. Karena itu, kesediaan orang tua mengikuti sesi konseling menjadi syarat sebelum kami menangani anak dan remaja.</p></details>
+<details><summary>Bolehkah saya mendampingi anak di ruang terapi?</summary><p>Untuk anak kecil, orang tua boleh mendampingi. Untuk anak yang lebih besar dan remaja, terapis mungkin meminta waktu berdua agar anak lebih terbuka. Orang tua tetap mendapat ringkasan perkembangan dan saran untuk di rumah.</p></details>
+<details><summary>Anak saya menolak diterapi. Apa yang sebaiknya saya lakukan?</summary><p>Jangan dipaksa, karena terapi bekerja bila anak bersedia. Ceritakan dulu kondisinya kepada kami. Terapis bisa memulai dari sesi konseling orang tua dan pendekatan yang santai, agar anak merasa nyaman lebih dulu.</p></details>
+<details><summary>Bagaimana cara menjelaskan hipnoterapi kepada anak?</summary><p>Gunakan bahasa sederhana, misalnya: “Kita akan ngobrol dan latihan santai bersama kakak terapis supaya kamu lebih tenang dan berani.” Hindari kata yang menakutkan atau terdengar seperti hukuman. Bila perlu, terapis akan membantu menjelaskannya.</p></details>
+<details><summary>Berapa lama hasilnya terlihat pada anak?</summary><p>Sebagian anak menunjukkan perubahan setelah beberapa sesi, sebagian lagi butuh waktu lebih lama. Konsistensi di rumah sangat menentukan, karena itu terapis akan memberikan latihan sederhana untuk dilakukan bersama orang tua.</p></details>
+<details><summary>Apakah anak berkebutuhan khusus bisa ikut?</summary><p>Silakan konsultasikan dulu. Untuk kondisi seperti autisme, ADHD, atau gangguan tumbuh kembang, hipnoterapi hanya berperan sebagai pendukung penanganan dokter dan terapis tumbuh kembang. Terapis akan menilai kesesuaiannya.</p></details>
+<details><summary>Apakah hipnoterapi bisa membantu masalah dalam keluarga?</summary><p>Bisa. Selain untuk anak, kami juga mendampingi orang tua dan pasangan, misalnya untuk mengelola emosi, memulihkan hubungan yang renggang, atau pulih dari luka setelah perselingkuhan.</p></details>
+</div>
+
+<div class="faq" id="p-remaja" role="tabpanel" aria-labelledby="t-remaja">
+<details open><summary>Apakah orang tuaku akan tahu semua yang aku ceritakan?</summary><p>Tidak. Ceritamu dijaga. Orang tua hanya mendapat gambaran umum perkembanganmu, bukan isi curhatanmu, kecuali ada hal yang membahayakan keselamatanmu.</p></details>
+<details><summary>Aku disuruh datang oleh orang tua. Harus bagaimana?</summary><p>Tidak apa-apa. Kamu tidak akan dihipnosis kalau kamu tidak mau. Sesi pertama bisa diisi ngobrol santai dulu. Terapi ini ada untuk membantumu, bukan untuk menghukummu.</p></details>
+<details><summary>Apakah aku akan disuruh melakukan hal yang aneh?</summary><p>Tidak. Ini bukan hipnotis panggung. Kamu tetap sadar, bisa mendengar semuanya, dan boleh berhenti kapan saja.</p></details>
+<details><summary>Bisakah membantuku yang gugup saat ujian atau presentasi?</summary><p>Bisa. Terapis akan membantumu mengenali rasa gugup, melatih cara menenangkan diri dengan cepat, dan membangun rasa percaya diri sebelum ujian, lomba, atau tampil di depan kelas.</p></details>
+<details><summary>Aku susah lepas dari HP dan game. Bisa dibantu?</summary><p>Bisa. Bersama terapis, kamu akan mencari tahu apa yang membuatmu sulit berhenti, lalu membangun kebiasaan baru yang lebih seimbang tanpa merasa dikekang.</p></details>
+<details><summary>Aku sering sedih, minder, atau terlalu banyak berpikir. Apakah ini normal?</summary><p>Banyak remaja mengalaminya, jadi kamu tidak sendirian. Bercerita kepada terapis bisa membantumu memahami perasaanmu dan merasa lebih ringan. Jika muncul pikiran untuk menyakiti diri sendiri, segera beri tahu orang dewasa yang kamu percaya atau hubungi layanan darurat.</p></details>
+<details><summary>Bisakah aku menghubungi terapis tanpa orang tua?</summary><p>Kamu boleh menghubungi kami lebih dulu untuk bertanya. Namun, untuk menjalani sesi terapi, kamu yang berusia di bawah 18 tahun memerlukan persetujuan orang tua atau wali.</p></details>
+<details><summary>Apakah teman-temanku akan tahu aku ikut terapi?</summary><p>Tidak. Nama, jadwal, dan ceritamu dirahasiakan. Hanya kamu yang memutuskan mau menceritakannya kepada siapa.</p></details>
+</div>
+
+<div class="faq" id="p-biaya" role="tabpanel" aria-labelledby="t-biaya">
+<details open><summary>Mengapa tarif tiap terapis berbeda?</summary><p>Tarif mengikuti level terapis (profesional, spesialis, senior) dan kerumitan masalah Anda.</p></details>
+<details><summary>Bagaimana cara memesan jadwal?</summary><p>Hubungi salah satu nomor WhatsApp kami dan ceritakan keluhan Anda secara singkat. Kami pilihkan terapis yang sesuai, lalu jadwal dan uang muka dikonfirmasi.</p></details>
+<details><summary>Berapa lama satu sesi berlangsung?</summary><p>Durasi sesi disesuaikan dengan kebutuhan dan dikonfirmasi saat konsultasi awal.</p></details>
+<details><summary>Apakah perlu membayar uang muka?</summary><p>Ya, uang muka diperlukan untuk mengamankan jadwal Anda. Ketentuan perubahan jadwal dijelaskan saat konfirmasi pemesanan.</p></details>
+<details><summary>Kapan jam layanan klinik?</summary><p>Setiap hari, Senin sampai Minggu, pukul 09.00 – 16.00 WIB, untuk sesi tatap muka maupun online.</p></details>
+<details><summary>Saya tinggal di luar Lampung. Apakah bisa ikut?</summary><p>Bisa. Sesi online lewat video call tersedia untuk klien dari mana saja.</p></details>
 </div>
 </div>
 </section>
@@ -611,9 +669,9 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <p style="font-size:clamp(16px,2.2vw,19px)">Pilih salah satu nomor. Ceritakan kebutuhan Anda, kami bantu memilihkan terapis dan menjaga kerahasiaan Anda.</p>
 </div>
 <div class="wa-list">
-<a class="wa rv" href="https://wa.me/628127154447" target="_blank" rel="noopener"><span class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg></span><div><b>0812-7154-447</b><span>Admin 1 · WhatsApp</span></div><svg class="arr" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-<a class="wa rv" href="https://wa.me/6281351962596" target="_blank" rel="noopener"><span class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg></span><div><b>0813-5196-2596</b><span>Admin 2 · WhatsApp</span></div><svg class="arr" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-<a class="wa rv" href="https://wa.me/6281368737339" target="_blank" rel="noopener"><span class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg></span><div><b>0813-6873-7339</b><span>Admin 3 · WhatsApp</span></div><svg class="arr" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="wa rv" href="https://wa.me/628127154447?text=Halo%20Hipnoterapi%20Center%2C%20saya%20ingin%20konsultasi." target="_blank" rel="noopener"><span class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg></span><div><b>0812-7154-447</b><span>Admin 1 · WhatsApp</span></div><svg class="arr" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="wa rv" href="https://wa.me/6281351962596?text=Halo%20Hipnoterapi%20Center%2C%20saya%20ingin%20konsultasi." target="_blank" rel="noopener"><span class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg></span><div><b>0813-5196-2596</b><span>Admin 2 · WhatsApp</span></div><svg class="arr" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="wa rv" href="https://wa.me/6281368737339?text=Halo%20Hipnoterapi%20Center%2C%20saya%20ingin%20konsultasi." target="_blank" rel="noopener"><span class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg></span><div><b>0813-6873-7339</b><span>Admin 3 · WhatsApp</span></div><svg class="arr" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div>
 </div>
 <div class="foot">
@@ -625,7 +683,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 </div>
 </footer>
 
-<a class="fab" href="https://wa.me/628127154447" target="_blank" rel="noopener" aria-label="Chat WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg><span>Chat WhatsApp</span></a>
+<a class="fab" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya ingin bertanya." aria-label="Chat WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg><span>Chat WhatsApp</span></a>
 
 <script>
 (function(){
@@ -640,7 +698,25 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
     var n=[].filter.call(qs,function(x){return x.getAttribute('aria-pressed')==='true'}).length;
     v.classList.toggle('on',n>0);
     c.textContent=n?n+' dari 3 dijawab “ya”':'Belum ada yang dipilih';
+    // pesan WhatsApp ikut menyebut keluhan yang dipilih
+    var cerita=document.getElementById('cerita'),pilih=[].filter.call(qs,function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return '- '+x.querySelector('strong').textContent});
+    cerita.setAttribute('data-wa',pilih.length?'Halo Hipnoterapi Center, saya baru mengisi cek diri di website. Saya mengalami:\n'+pilih.join('\n')+'\nSaya ingin bercerita ke terapis.':'Halo Hipnoterapi Center, saya baru mengisi cek diri di website dan ingin bercerita ke terapis.');
   })});
+  // tombol WhatsApp: nomor dipilih acak dari 3 admin, pesan sesuai tombol
+  var WA=['628127154447','6281351962596','6281368737339'];
+  function waLink(a){return 'https://wa.me/'+WA[Math.floor(Math.random()*WA.length)]+'?text='+encodeURIComponent(a.getAttribute('data-wa'))}
+  document.querySelectorAll('[data-wa]').forEach(function(a){
+    a.href=waLink(a);
+    a.addEventListener('click',function(){a.href=waLink(a)});
+  });
+  // FAQ per topik
+  var tabs=document.querySelectorAll('.ftabs [role=tab]');
+  function showTab(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){showTab(t);var r=t.parentNode;r.scrollTo({left:t.offsetLeft-(r.clientWidth-t.offsetWidth)/2,behavior:'smooth'})});
+    t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var n=tabs[(i+k+tabs.length)%tabs.length];showTab(n);n.focus()}});
+  });
+  if(tabs.length)showTab(tabs[0]);
   // kategori: terbuka di layar lebar, tertutup di HP agar tidak terlalu panjang
   if(window.matchMedia('(max-width:720px)').matches){document.querySelectorAll('details.cat').forEach(function(d,i){if(i>0)d.removeAttribute('open')})}
   // animasi muncul
