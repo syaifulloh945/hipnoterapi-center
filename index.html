@@ -23,7 +23,38 @@ a{color:#5B3FD1}a:hover{color:#1B1140}
 .card h3{margin:0;font-size:19px;line-height:1.3}
 .card p{margin:0;font-size:16px;line-height:1.6;color:#4B4570}
 .card ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:#4B4570;font-size:16px;line-height:1.5}
-.ico{width:48px;height:48px;border-radius:12px;background:#EFEAFF;display:flex;align-items:center;justify-content:center;flex:none}
+.ico{width:52px;height:52px;border-radius:16px;background:linear-gradient(140deg,#8B6CFF 0%,#5B3FD1 55%,#3A2399 100%);box-shadow:0 10px 22px -10px rgba(91,63,209,.75),inset 0 1px 0 rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;flex:none;position:relative}
+.ico::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 28% 22%,rgba(255,255,255,.35),transparent 55%);pointer-events:none}
+.ico svg{position:relative;z-index:1}
+/* cek diri */
+.qlist{display:flex;flex-direction:column;gap:14px}
+.q{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:flex-start;gap:16px;background:#fff;border:1.5px solid #DDD5F7;border-radius:20px;padding:20px;font-size:16px;line-height:1.6;color:#1B1140;transition:border-color .2s,box-shadow .2s,transform .2s}
+.q:hover{border-color:#9D85FF;box-shadow:0 14px 30px -18px rgba(59,36,153,.45);transform:translateY(-2px)}
+.q:focus-visible{outline:3px solid #FFC857;outline-offset:2px}
+.q strong{display:block;font-size:17px;margin-bottom:4px}
+.q .tick{margin-left:auto;flex:none;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#7A72A3;padding:6px 12px 6px 8px;border:1.5px solid #DDD5F7;border-radius:999px;white-space:nowrap}
+.q .tick i{width:18px;height:18px;border-radius:50%;border:2px solid #C9BEF2;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
+.q[aria-pressed="true"]{border-color:#5B3FD1;background:linear-gradient(180deg,#fff,#F4F0FF);box-shadow:0 14px 30px -18px rgba(59,36,153,.55)}
+.q[aria-pressed="true"] .tick{background:#5B3FD1;border-color:#5B3FD1;color:#fff}
+.q[aria-pressed="true"] .tick i{border-color:#FFC857;background:#FFC857}
+.verdict{border-radius:20px;padding:22px 24px;background:#140B33;color:#D9D0FF;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;transition:box-shadow .3s}
+.verdict p{margin:0;font-size:17px;line-height:1.6;flex:1 1 320px}
+.verdict strong{color:#FFC857}
+.verdict.on{box-shadow:0 0 0 4px #FFC857}
+@media (max-width:560px){.q{flex-wrap:wrap}.q .tick{margin-left:68px}}
+/* kategori masalah */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.cat{background:#fff;border:1px solid #DDD5F7;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.cat:hover{transform:translateY(-3px);border-color:#B9A6FF;box-shadow:0 20px 40px -24px rgba(59,36,153,.5)}
+.cat-h{display:flex;align-items:center;gap:14px}
+.cat h3{margin:0;font-size:19px;line-height:1.3}
+.cat small{display:block;font-size:13px;font-weight:600;color:#7A72A3;margin-top:2px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font-size:14px;line-height:1.3;padding:7px 12px;border-radius:999px;background:#F4F0FF;color:#3B2F73;border:1px solid #E6DFFF}
+.cat .note{margin:0;font-size:13px;line-height:1.55;color:#7A72A3}
+.cat.wide{grid-column:1/-1;background:linear-gradient(120deg,#140B33,#2A1A6B);border:0;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.cat.wide h3{color:#fff}
+.cat.wide p{margin:4px 0 0;color:#D9D0FF;font-size:16px;line-height:1.6}
 .eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5B3FD1}
 .h1{margin:0;font-size:clamp(32px,8.6vw,58px);line-height:1.08;font-weight:800;letter-spacing:-0.02em;color:#fff}
 .h2{margin:0;font-size:clamp(26px,6.4vw,40px);line-height:1.15;font-weight:800;letter-spacing:-0.01em}
@@ -53,6 +84,7 @@ a{color:#5B3FD1}a:hover{color:#1B1140}
 </div>
 <a class="btn" href="#kontak" style="background:#FFC857;color:#140B33;min-height:44px;padding:0 18px;font-size:15px">WhatsApp</a>
 <nav class="navlinks" aria-label="Menu utama">
+<a href="#cek">Cek Diri</a>
 <a href="#masalah">Masalah</a>
 <a href="#tanda">Tanda Perlu Terapi</a>
 <a href="#tarif">Tarif</a>
@@ -108,6 +140,26 @@ a{color:#5B3FD1}a:hover{color:#1B1140}
 </div>
 </div>
 
+<!-- CEK DIRI -->
+<div id="cek" class="sec" style="padding-bottom:0">
+<div class="wrap" style="display:flex;flex-direction:column;gap:28px;max-width:900px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p class="eyebrow">Cek diri sebentar</p>
+<h2 class="h2">Apakah Anda sedang mengalami salah satu dari hal berikut?</h2>
+<p class="lead">Ketuk yang sesuai dengan kondisi Anda.</p>
+</div>
+<div class="qlist">
+<button type="button" class="q" aria-pressed="false"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.6A4.2 4.2 0 0 1 12 7.6a4.2 4.2 0 0 1 7 2.8C19 15.6 12 20 12 20z"/><path stroke="#FFC857" d="M7.5 12.5h2.2l1.4-2.4 1.9 4.6 1.4-2.2h2.1"/></svg></div><span><strong>Keluhan fisik yang tak kunjung reda</strong>Lambung perih atau asam naik, punggung pegal, leher serasa tercekat, dada berdebar atau sesak, sampai kepala pusing berputar. Sudah lama dirasakan, tetapi hasil pemeriksaan dokter selalu normal.</span><span class="tick"><i></i>Ya, saya</span></button>
+<button type="button" class="q" aria-pressed="false"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17.5h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 6.9 11a3.25 3.25 0 0 0 .1 6.5z"/><path stroke="#FFC857" d="M12.8 11.5l-2 3h3l-2 3"/></svg></div><span><strong>Takut atau cemas yang terasa tidak masuk akal</strong>Rasa takut yang jauh lebih besar dari keadaannya, sampai tubuh ikut bereaksi: jantung berpacu, lemas, pusing, keringat dingin. Misalnya takut mati, takut hewan atau serangga tertentu, takut gelap, takut naik pesawat, atau takut keramaian. Makin dilawan, justru makin kuat.</span><span class="tick"><i></i>Ya, saya</span></button>
+<button type="button" class="q" aria-pressed="false"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5.2 5 10a5 5 0 0 1-10 0c0-2.6 1.4-4.2 2.6-5.2.1 2 .9 3.1 2 3.4C11.4 8.4 11 5.8 12 3z"/><path stroke="#FFC857" d="M10.3 15.6a1.8 1.8 0 0 0 3.4 0"/></svg></div><span><strong>Emosi terpendam yang menyakitkan</strong>Amarah, cemburu, dendam, atau luka hati yang dalam dan sulit dimaafkan, sampai tubuh ikut terasa sakit.</span><span class="tick"><i></i>Ya, saya</span></button>
+</div>
+<div class="verdict" id="verdict">
+<p>Bila ada <strong>satu saja</strong> yang Anda jawab “ya”, hipnoterapi di Hypnotherapy Center bisa menjadi langkah yang tepat untuk Anda.</p>
+<a class="btn" href="#kontak" style="background:#FFC857;color:#140B33">Ceritakan ke terapis</a>
+</div>
+</div>
+</div>
+
 <!-- MASALAH YANG DAPAT DIBANTU -->
 <div id="masalah" class="sec">
 <div class="wrap" style="display:flex;flex-direction:column;gap:32px">
@@ -115,52 +167,63 @@ a{color:#5B3FD1}a:hover{color:#1B1140}
 <p class="eyebrow">Masalah yang dapat dibantu hipnoterapi</p>
 <h2 class="h2">Banyak keluhan berawal dari pikiran, dan bisa dibantu lewat pikiran</h2>
 </div>
-<div class="row">
-<div class="card">
-<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B3FD1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/></svg></div>
-<h3>Emosi dan mental</h3>
-<ul>
-<li>Kecemasan dan serangan panik</li>
-<li>Fobia: ketinggian, ruang sempit, darah, binatang, dan lainnya</li>
-<li>Trauma dan stres pasca kejadian berat (sebagai pendamping)</li>
-<li>Stres, burnout, dan overthinking</li>
-<li>Mudah marah dan sulit mengendalikan emosi</li>
-<li>Insomnia dan gangguan tidur</li>
-</ul>
+<div class="cgrid">
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.6A4.2 4.2 0 0 1 12 7.6a4.2 4.2 0 0 1 7 2.8C19 15.6 12 20 12 20z"/><path stroke="#FFC857" d="M7.5 12.5h2.2l1.4-2.4 1.9 4.6 1.4-2.2h2.1"/></svg></div><div><h3>Psikosomatis</h3><small>Keluhan tubuh yang dipicu pikiran</small></div></div>
+<div class="tags"><span>Asam lambung dan GERD kambuhan</span><span>Jantung berdebar</span><span>Napas terasa berat</span><span>Migrain</span><span>Kepala terasa melayang</span><span>Tenggorokan panas atau tercekat</span><span>Nyeri ulu hati</span><span>Pegal punggung menahun</span></div>
+<p class="note">Berlaku bila hasil pemeriksaan dokter menyatakan kondisi fisik Anda normal.</p>
 </div>
-<div class="card">
-<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B3FD1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
-<h3>Keluhan fisik terkait stres</h3>
-<ul>
-<li>Maag atau asam lambung yang kambuh saat stres</li>
-<li>Perut kembung dan tidak nyaman saat cemas (IBS)</li>
-<li>Sakit kepala tegang dan migrain pemicu stres</li>
-<li>Nyeri kronis (sebagai pendukung)</li>
-<li>Jantung berdebar karena cemas, setelah dokter memastikan tidak ada penyebab medis</li>
-</ul>
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path stroke="#FFC857" d="M8.6 14.2c1.9 2.2 4.9 2.2 6.8 0"/><path d="M9 9.8v.4M15 9.8v.4"/></svg></div><div><h3>Emosi</h3><small>Perasaan yang sulit dikendalikan</small></div></div>
+<div class="tags"><span>Luka batin</span><span>Pikiran yang tak mau berhenti</span><span>Stres menumpuk</span><span>Takut akan kematian</span><span>Penyesalan dan rasa bersalah</span><span>Fobia</span><span>Amarah yang mudah meledak</span><span>Sedih tanpa alasan jelas</span><span>Insomnia</span></div>
 </div>
-<div class="card">
-<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B3FD1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></div>
-<h3>Kebiasaan dan perilaku</h3>
-<ul>
-<li>Berhenti merokok</li>
-<li>Makan karena emosi dan kontrol berat badan</li>
-<li>Kecanduan gawai, game, dan judi</li>
-<li>Menunda-nunda dan malas berkepanjangan</li>
-<li>Ketergantungan zat (bersama dokter atau rehabilitasi)</li>
-</ul>
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17.5h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 6.9 11a3.25 3.25 0 0 0 .1 6.5z"/><path stroke="#FFC857" d="M12.8 11.5l-2 3h3l-2 3"/></svg></div><div><h3>Kecemasan</h3><small>Khawatir yang tidak sebanding</small></div></div>
+<div class="tags"><span>Cemas berlebihan</span><span>Memikirkan hal yang belum terjadi</span><span>Takut jatuh sakit</span><span>Sulit fokus</span><span>Susah tidur</span><span>Takut keluar rumah</span><span>Tidak nyaman di keramaian</span><span>Panik untuk urusan sehari-hari</span></div>
 </div>
-<div class="card">
-<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B3FD1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
-<h3>Percaya diri dan performa</h3>
-<ul>
-<li>Minder dan takut dinilai orang lain</li>
-<li>Demam panggung dan gugup berbicara di depan umum</li>
-<li>Cemas menghadapi ujian dan sulit fokus belajar</li>
-<li>Motivasi dan produktivitas kerja</li>
-<li>Kesiapan mental menghadapi lomba atau pertandingan</li>
-</ul>
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.4 13.8l8.4-8.4a3.1 3.1 0 0 1 4.4 4.4l-8.4 8.4a3.1 3.1 0 0 1-4.4-4.4z"/><path stroke="#FFC857" stroke-width="2.4" d="M10.6 10.6h.01M13.4 13.4h.01M13.4 10.6h.01M10.6 13.4h.01"/></svg></div><div><h3>Trauma</h3><small>Kejadian berat yang terus membekas</small></div></div>
+<div class="tags"><span>Luka masa lalu</span><span>Ditipu atau dikhianati</span><span>Perceraian</span><span>Perselingkuhan</span><span>Kecelakaan</span><span>Kekerasan seksual</span><span>Patah hati</span><span>Bangkrut</span><span>Pernah dipermalukan</span></div>
+<p class="note">Untuk trauma berat, hipnoterapi berperan sebagai pendamping penanganan profesional lainnya.</p>
 </div>
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.5" cy="8" r="3"/><path d="M3 19.5a5.5 5.5 0 0 1 11 0"/><circle stroke="#FFC857" cx="16.5" cy="9" r="2.4"/><path stroke="#FFC857" d="M15.2 13.7a4.6 4.6 0 0 1 5.8 4.6"/></svg></div><div><h3>Keluarga dan pasangan</h3><small>Hubungan di rumah yang terasa berat</small></div></div>
+<div class="tags"><span>Rumah tangga kurang harmonis</span><span>Pulih setelah perselingkuhan</span><span>Hubungan terasa hambar</span><span>Disfungsi ereksi</span><span>Ejakulasi dini</span><span>Vaginismus</span></div>
+<p class="note">Keluhan seksual sebaiknya diperiksa dokter lebih dulu.</p>
+</div>
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="8" r="3.4"/><path d="M4.5 20a6.5 6.5 0 0 1 13 0"/><path stroke="#FFC857" d="M19.5 2.8v4M17.5 4.8h4"/></svg></div><div><h3>Pengembangan diri</h3><small>Menjadi pribadi yang lebih lepas</small></div></div>
+<div class="tags"><span>Sulit bergaul</span><span>Malu dan minder</span><span>Sulit menyampaikan pendapat</span><span>Takut berbuat salah</span><span>Gagap</span><span>Demam panggung</span><span>Menunda-nunda pekerjaan</span><span>Cemas menghadapi ujian</span><span>Mental bertanding</span></div>
+</div>
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.4 9A7 7 0 1 0 19 12.5"/><path stroke="#FFC857" d="M19.4 4.6V9H15"/></svg></div><div><h3>Kebiasaan dan kecanduan</h3><small>Pola yang terus berulang</small></div></div>
+<div class="tags"><span>Berhenti merokok</span><span>Kecanduan game dan gawai</span><span>Belanja impulsif</span><span>Pornografi</span><span>Kebiasaan mengutil</span><span>Judi</span><span>Ketergantungan zat</span></div>
+<p class="note">Ketergantungan zat ditangani bersama dokter atau fasilitas rehabilitasi.</p>
+</div>
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="9" rx="5" ry="6"/><path stroke="#FFC857" d="M12 15l-1.1 2 2.2 2-1.1 2.5"/><path d="M10.4 6.6a2 2 0 0 1 1.6-1"/></svg></div><div><h3>Anak dan remaja</h3><small>Perilaku yang mengganggu tumbuh kembang</small></div></div>
+<div class="tags"><span>Sering berbohong</span><span>Susah makan nasi atau sayur</span><span>Mengompol</span><span>Pemalu</span><span>Penakut</span><span>Sulit belajar</span></div>
+<p class="note">Orang tua ikut menjalani sesi konseling agar perubahan anak bertahan.</p>
+</div>
+
+<div class="cat">
+<div class="cat-h"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8c-3-2-7.2-.6-7.2 3.8 0 4.2 3 8.7 5.2 8.7 1 0 1.3-.5 2-.5s1 .5 2 .5c2.2 0 5.2-4.5 5.2-8.7C19.2 7.4 15 6 12 8z"/><path stroke="#FFC857" d="M12 8c-.2-2.2.8-4 3-5"/></svg></div><div><h3>Diet dan berat badan</h3><small>Pola makan yang lebih ringan dijalani</small></div></div>
+<div class="tags"><span>Diet yang selalu gagal</span><span>Kebiasaan ngemil</span><span>Makan karena emosi</span><span>Malas berolahraga</span><span>Menurunkan berat badan</span><span>Menaikkan berat badan ideal</span></div>
+</div>
+
+<div class="cat wide">
+<div class="cat-h" style="flex:1 1 420px;align-items:flex-start"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v10.5H9.5L4 20z"/><path stroke="#FFC857" d="M10.2 8.9a1.9 1.9 0 1 1 2.8 1.7c-.6.3-1 .7-1 1.4"/><path stroke="#FFC857" stroke-width="2.4" d="M12 13.9h.01"/></svg></div><div><h3>Keluhan emosi lainnya</h3><p>Kondisi Anda tidak tercantum di atas? Ceritakan dulu lewat konsultasi, terapis kami akan menilai apakah hipnoterapi cocok untuk Anda.</p></div></div>
+<a class="btn" href="#kontak" style="background:#FFC857;color:#140B33">Konsultasikan dulu</a>
+</div>
+
 </div>
 <p class="lead" style="font-size:14px;max-width:860px">Hipnoterapi membantu mengelola dan mengurangi keluhan, dan hasilnya berbeda pada tiap orang. Ia tidak menggantikan penanganan dokter, psikolog, atau psikiater. Keluhan fisik sebaiknya diperiksa dokter lebih dulu.</p>
 </div>
@@ -288,17 +351,17 @@ a{color:#5B3FD1}a:hover{color:#1B1140}
 </div>
 <div class="row">
 <div class="card">
-<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B3FD1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
 <h3>Sertifikat diverifikasi</h3>
 <p>Setiap terapis dicek sertifikasi dan pengalamannya sebelum melayani.</p>
 </div>
 <div class="card">
-<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B3FD1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
 <h3>Privasi dijaga</h3>
 <p>Cerita dan data Anda rahasia. Terapis terikat kode etik.</p>
 </div>
 <div class="card">
-<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B3FD1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+<div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
 <h3>Rujukan bila perlu</h3>
 <p>Jika keluhan butuh penanganan medis, kami sampaikan terus terang dan bantu merujuk.</p>
 </div>
@@ -409,5 +472,12 @@ a{color:#5B3FD1}a:hover{color:#1B1140}
 </div>
 
 </div>
+<script>
+(function(){var qs=document.querySelectorAll('.q'),v=document.getElementById('verdict');
+qs.forEach(function(b){b.addEventListener('click',function(){
+b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');
+var any=[].some.call(qs,function(x){return x.getAttribute('aria-pressed')==='true'});
+v.classList.toggle('on',any);});});})();
+</script>
 </body>
 </html>
