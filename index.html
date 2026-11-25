@@ -280,6 +280,25 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 @media (max-width:900px){.cta-grid{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
 @media (max-width:480px){.foot{grid-template-columns:1fr}}
 
+/* pilihan admin WhatsApp */
+.pick{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(7,26,74,0);transition:background .2s}
+.pick.open{background:rgba(7,26,74,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.pick[hidden]{display:none}
+.sheet{position:relative;width:100%;max-width:440px;background:#fff;border-radius:26px;padding:28px 24px 22px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5);transform:translateY(16px) scale(.98);opacity:0;transition:transform .25s,opacity .2s}
+.pick.open .sheet{transform:none;opacity:1}
+.sheet h3{font-size:21px;padding-right:40px}
+.sheet>p{color:var(--ink-2);font-size:15px;margin-top:6px}
+.sheet .x{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:0;background:var(--soft);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.walist{display:flex;flex-direction:column;gap:10px;margin:18px 0 14px}
+.wa-opt{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;border:1.5px solid var(--line);text-decoration:none;color:var(--ink);transition:border-color .2s,background .2s,transform .2s}
+.wa-opt:hover,.wa-opt:focus-visible{border-color:var(--wa);background:#F1FCF5;transform:translateY(-1px);outline:none}
+.wa-opt .wi{width:44px;height:44px;border-radius:14px;background:var(--wa);display:flex;align-items:center;justify-content:center;flex:none}
+.wa-opt b{display:block;font-size:17px}
+.wa-opt span{font-size:13.5px;color:var(--muted)}
+.wa-opt .arr{margin-left:auto;color:var(--wa)}
+.safe{display:flex;align-items:center;gap:8px;justify-content:center;font-size:13px!important;color:var(--muted)!important}
+@media (max-width:560px){.pick{align-items:flex-end;padding:0}.sheet{max-width:none;border-radius:26px 26px 0 0;padding-bottom:calc(22px + env(safe-area-inset-bottom));transform:translateY(100%)}}
+
 /* tombol WA melayang */
 .fab{position:fixed;right:clamp(14px,3vw,24px);bottom:calc(clamp(14px,3vw,24px) + env(safe-area-inset-bottom));z-index:60;display:flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 16px;border-radius:999px;background:var(--wa);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 16px 32px -12px rgba(37,211,102,.7);transition:transform .2s}
 .fab:hover{transform:translateY(-3px)}
@@ -491,7 +510,7 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <h3>Terapis Profesional</h3>
 <div class="price">Rp400.000 <span>/ sesi</span></div>
 <p class="d">Keluhan ringan hingga sedang: stres harian, sulit tidur, kurang percaya diri, kebiasaan ringan.</p>
-<a class="btn btn-dark" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya tertarik dengan sesi Terapis Profesional (Rp400.000 per sesi). Kapan jadwal yang tersedia?">Pilih paket ini</a>
+<a class="btn btn-dark" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya ingin konsultasi terkait hipnoterapi bersama Terapis Profesional. Keluhan saya: ">Pilih paket ini</a>
 </div>
 <div class="plan hot rv">
 <span class="ribbon">Paling banyak dipilih</span>
@@ -499,14 +518,14 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 <h3>Terapis Spesialis</h3>
 <div class="price">Rp600.000 <span>/ sesi</span></div>
 <p class="d">Kecemasan menetap, serangan panik, fobia, trauma, dan kebiasaan yang sulit diubah.</p>
-<a class="btn btn-brand" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya tertarik dengan sesi Terapis Spesialis (Rp600.000 per sesi). Kapan jadwal yang tersedia?">Pilih paket ini</a>
+<a class="btn btn-brand" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya ingin konsultasi terkait hipnoterapi bersama Terapis Spesialis. Keluhan saya: ">Pilih paket ini</a>
 </div>
 <div class="plan rv">
 <span class="lvl">Level 3</span>
 <h3>Terapis Senior Berpengalaman</h3>
 <div class="price">Rp800.000 <span>/ sesi</span></div>
 <p class="d">Kasus kompleks atau yang sudah lama dialami, ditangani terapis dengan jam terbang tinggi.</p>
-<a class="btn btn-dark" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya tertarik dengan sesi Terapis Senior Berpengalaman (Rp800.000 per sesi). Kapan jadwal yang tersedia?">Pilih paket ini</a>
+<a class="btn btn-dark" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya ingin konsultasi terkait hipnoterapi bersama Terapis Senior Berpengalaman. Keluhan saya: ">Pilih paket ini</a>
 </div>
 </div>
 <p class="small" style="margin-top:28px;text-align:center;max-width:760px;margin-left:auto;margin-right:auto">Tarif dasar. Biaya akhir, durasi sesi, dan uang muka dikonfirmasi setelah konsultasi awal sesuai jenis masalah.</p>
@@ -685,6 +704,16 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 
 <a class="fab" href="https://wa.me/628127154447" target="_blank" rel="noopener" data-wa="Halo Hipnoterapi Center, saya ingin bertanya." aria-label="Chat WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg><span>Chat WhatsApp</span></a>
 
+<div class="pick" id="wapick" hidden>
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pick-t">
+<button type="button" class="x" data-close aria-label="Tutup"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<h3 id="pick-t">Pilih admin WhatsApp</h3>
+<p>Semua admin siap membantu Anda. Pesan pembuka sudah kami siapkan, tinggal kirim.</p>
+<div class="walist" id="walist"></div>
+<p class="safe"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Percakapan Anda dijaga kerahasiaannya.</p>
+</div>
+</div>
+
 <script>
 (function(){
   // menu HP
@@ -702,13 +731,28 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
     var cerita=document.getElementById('cerita'),pilih=[].filter.call(qs,function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return '- '+x.querySelector('strong').textContent});
     cerita.setAttribute('data-wa',pilih.length?'Halo Hipnoterapi Center, saya baru mengisi cek diri di website. Saya mengalami:\n'+pilih.join('\n')+'\nSaya ingin bercerita ke terapis.':'Halo Hipnoterapi Center, saya baru mengisi cek diri di website dan ingin bercerita ke terapis.');
   })});
-  // tombol WhatsApp: nomor dipilih acak dari 3 admin, pesan sesuai tombol
-  var WA=['628127154447','6281351962596','6281368737339'];
-  function waLink(a){return 'https://wa.me/'+WA[Math.floor(Math.random()*WA.length)]+'?text='+encodeURIComponent(a.getAttribute('data-wa'))}
+  // tombol WhatsApp: klien memilih salah satu dari 3 admin; urutan diacak tiap kali dibuka agar terbagi rata
+  var WA=[{n:'628127154447',t:'0812-7154-447',a:'Admin 1'},{n:'6281351962596',t:'0813-5196-2596',a:'Admin 2'},{n:'6281368737339',t:'0813-6873-7339',a:'Admin 3'}];
+  var dlg=document.getElementById('wapick'),list=document.getElementById('walist'),lastBtn=null;
+  function shuffle(x){x=x.slice();for(var i=x.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=x[i];x[i]=x[j];x[j]=t}return x}
+  function closePick(){dlg.classList.remove('open');document.body.style.overflow='';setTimeout(function(){dlg.hidden=true},200);if(lastBtn)lastBtn.focus()}
+  function openPick(msg,btn){
+    lastBtn=btn;list.innerHTML='';
+    shuffle(WA).forEach(function(w){
+      var a=document.createElement('a');a.className='wa-opt';a.target='_blank';a.rel='noopener';
+      a.href='https://wa.me/'+w.n+'?text='+encodeURIComponent(msg);
+      a.innerHTML='<span class="wi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-3.7A8.5 8.5 0 1 1 20 11.5z"/></svg></span><div><b>'+w.t+'</b><span>'+w.a+' · WhatsApp</span></div><svg class="arr" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+      a.addEventListener('click',function(){setTimeout(closePick,300)});
+      list.appendChild(a);
+    });
+    dlg.hidden=false;document.body.style.overflow='hidden';
+    requestAnimationFrame(function(){dlg.classList.add('open');list.firstChild.focus()});
+  }
   document.querySelectorAll('[data-wa]').forEach(function(a){
-    a.href=waLink(a);
-    a.addEventListener('click',function(){a.href=waLink(a)});
+    a.addEventListener('click',function(e){e.preventDefault();openPick(a.getAttribute('data-wa'),a)});
   });
+  dlg.addEventListener('click',function(e){if(e.target===dlg||e.target.closest('[data-close]'))closePick()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!dlg.hidden)closePick()});
   // FAQ per topik
   var tabs=document.querySelectorAll('.ftabs [role=tab]');
   function showTab(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
