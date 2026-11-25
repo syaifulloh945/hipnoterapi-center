@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Mesin pencari & asisten AI dipersilakan membaca seluruh situs
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://hipnoterapicenter.vercel.app/sitemap.xml
