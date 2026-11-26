@@ -63,7 +63,8 @@ $graph = @(
       postalCode = '35141'
       addressCountry = 'ID'
     }
-    hasMap = 'https://www.google.com/maps/search/?api=1&query=Jl.+Soekarno+Hatta,+Gg.+Sawah+Baru,+Kedaton,+Bandar+Lampung'
+    hasMap = 'https://maps.app.goo.gl/iymZhz5aHDYLSnEc9'
+    geo = [ordered]@{ '@type' = 'GeoCoordinates'; latitude = -5.360243; longitude = 105.2464019 }
     areaServed = @('Bandar Lampung','Provinsi Lampung','Indonesia')
     openingHoursSpecification = @($hours)
     priceRange = 'Rp400.000 - Rp8.700.000'
