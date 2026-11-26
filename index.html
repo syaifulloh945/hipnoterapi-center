@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Hipnoterapi Lampung – Klinik Hipnoterapi Center Bandar Lampung</title>
 <meta name="description" content="Klinik hipnoterapi di Bandar Lampung untuk cemas, panik, susah tidur, fobia, trauma, asam lambung karena stres (psikosomatis), kecanduan, dan masalah anak. Online dan tatap muka, buka setiap hari 09.00–16.00. Mulai Rp400.000 per sesi.">
 <meta name="keywords" content="hipnoterapi lampung, hipnoterapi bandar lampung, klinik hipnoterapi lampung, terapi kecemasan lampung, terapi psikosomatis, hipnoterapi anak, hipnoterapi online">
@@ -56,7 +56,8 @@
   --wa:#25D366;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;text-size-adjust:100%;touch-action:pan-x pan-y}
+body,a,button,summary{touch-action:manipulation}
 body{margin:0;font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden}
 img,svg{max-width:100%}
 a{color:var(--brand)}
@@ -338,7 +339,13 @@ em.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;
 .js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
 </style>
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');
+// kunci zoom: cubit 2 jari (iOS/Android), Ctrl+scroll dan Ctrl +/- di laptop; ketuk 2x dicegah lewat CSS touch-action
+(function(){function no(e){e.preventDefault()}
+['gesturestart','gesturechange','gestureend'].forEach(function(t){document.addEventListener(t,no,{passive:false})});
+document.addEventListener('touchmove',function(e){if(e.touches.length>1||(e.scale&&e.scale!==1))e.preventDefault()},{passive:false});
+document.addEventListener('wheel',function(e){if(e.ctrlKey)e.preventDefault()},{passive:false});
+document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&['+','-','=','_','0'].indexOf(e.key)>-1)e.preventDefault()});})();</script>
 </head>
 <body>
 
